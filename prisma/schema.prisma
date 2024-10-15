@@ -26,3 +26,12 @@ model User {
   activities       String[]
   createdAt        DateTime @default(now())
 }
+
+model Select {
+  id               Int      @id @default(autoincrement())
+  type             String
+  value            String
+  hrLabel          String
+  enLabel          String
+  createdAt        DateTime @default(now())
+}

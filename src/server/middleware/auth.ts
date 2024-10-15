@@ -7,7 +7,10 @@ export default async function authMiddleware(event: H3Event) {
   const token = event.req.headers['authorization']?.split(' ')[1]
 
   // Routes to check with middleware
-  if (event.req.url?.includes('/api/users')) {
+  if (
+    event.req.url?.includes('/api/users') ||
+    (event.req.url?.includes('/api/selects') && event.req.method !== 'GET')
+  ) {
     if (!token) {
       throw createError({
         statusCode: 401,

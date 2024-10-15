@@ -15,6 +15,7 @@ export default defineEventHandler(async event => {
 
   const body = await readBody(event)
 
+  // Check parameters
   if (typeof body.email !== 'string' || !body.email.includes('@')) {
     throw createError({
       statusCode: 400,

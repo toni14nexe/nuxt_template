@@ -16,16 +16,22 @@
 							"name": "GET user",
 							"request": {
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{dev_api_url}}/api/users/1",
+									"raw": "{{dev_api_url}}/api/users/5",
 									"host": [
 										"{{dev_api_url}}"
 									],
 									"path": [
 										"api",
 										"users",
-										"1"
+										"5"
 									]
 								}
 							},
@@ -35,7 +41,13 @@
 							"name": "DELETE user",
 							"request": {
 								"method": "DELETE",
-								"header": [],
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "http://localhost:3000/api/users/4",
 									"protocol": "http",
@@ -61,6 +73,11 @@
 									{
 										"key": "Content-Type",
 										"value": "application/json"
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -73,7 +90,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:3000/api/users/1",
+									"raw": "http://localhost:3000/api/users/5",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -82,10 +99,50 @@
 									"path": [
 										"api",
 										"users",
-										"1"
+										"5"
 									]
 								},
 								"description": "Generated from cURL: curl -X PUT http://localhost:3000/api/users/1 \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"email\": \"updated@example.com\",\n  \"firstname\": \"Updated\",\n  \"lastname\": \"User\",\n  \"mobile\": \"9876543210\",  // mobile is now a string\n  \"country\": \"Updated Country\",\n  \"MIBPG\": \"654321\",\n  \"businessName\": \"Updated Business\",\n  \"organizationType\": \"Sole Proprietorship\",\n  \"county\": \"Updated County\",\n  \"place\": \"Updated Place\",\n  \"address\": \"456 Updated St\",\n  \"activities\": [\"updatedActivity1\", \"updatedActivity2\"],\n  \"oib\": \"987654321\"\n}'"
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Change password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"newPassword\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{dev_api_url}}/api/users/5/change-password",
+									"host": [
+										"{{dev_api_url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"5",
+										"change-password"
+									]
+								},
+								"description": "Generated from cURL: curl -X POST http://localhost:3000/api/users \\\n-H \"Content-Type: application/json\" \\\n-d '{\n    \"email\": \"user@example.com\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"mobile\": 1234567890,\n    \"country\": \"Country Name\",\n    \"MIBPG\": \"MIBPG Value\",\n    \"businessName\": \"Business Name\",\n    \"organizationType\": \"Organization Type\",\n    \"county\": \"County Name\",\n    \"place\": \"Place Name\",\n    \"address\": \"123 Main St\",\n    \"activities\": [\"activity1\", \"activity2\"],\n    \"oib\": \"123456789\"\n}'"
 							},
 							"response": []
 						}
@@ -99,11 +156,16 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"user@example.com\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"mobile\": 1234567890,\n    \"country\": \"Country Name\",\n    \"MIBPG\": \"MIBPG Value\",\n    \"businessName\": \"Business Name\",\n    \"organizationType\": \"Organization Type\",\n    \"county\": \"County Name\",\n    \"place\": \"Place Name\",\n    \"address\": \"123 Main St\",\n    \"activities\": [\"activity1\", \"activity2\"],\n    \"oib\": \"123456789\"\n}",
+							"raw": "{\n    \"email\": \"email@mail.com\",\n    \"password\": \"12345\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"mobile\": \"1234567890\",\n    \"country\": \"Country Name\",\n    \"MIBPG\": \"MIBPG Value\",\n    \"businessName\": \"Business Name\",\n    \"organizationType\": \"Organization Type\",\n    \"county\": \"County Name\",\n    \"place\": \"Place Name\",\n    \"address\": \"123 Main St\",\n    \"activities\": [],\n    \"oib\": \"123456789\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -128,7 +190,13 @@
 					"name": "GET users",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{dev_api_url}}/api/users",
 							"host": [
@@ -143,6 +211,216 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();\r",
+									"if (jsonData.token) {\r",
+									"    pm.collectionVariables.set(\"bearer_token\", jsonData.token);\r",
+									"} else {\r",
+									"    console.error(\"Token not found in response\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"updated@example.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_api_url}}/api/auth/login",
+							"host": [
+								"{{dev_api_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Selects",
+			"item": [
+				{
+					"name": "[id]",
+					"item": [
+						{
+							"name": "GET select",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{dev_api_url}}/api/selects/1",
+									"host": [
+										"{{dev_api_url}}"
+									],
+									"path": [
+										"api",
+										"selects",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE select",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/selects/20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"selects",
+										"20"
+									]
+								},
+								"description": "Generated from cURL: curl -X DELETE http://localhost:3000/api/users/1"
+							},
+							"response": []
+						},
+						{
+							"name": "PUT select",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"type\",\n    \"value\": \"value\",\n    \"hrLabel\": \"Naziv\",\n    \"enLabel\": \"Label\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/selects/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"selects",
+										"9"
+									]
+								},
+								"description": "Generated from cURL: curl -X PUT http://localhost:3000/api/users/1 \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"email\": \"updated@example.com\",\n  \"firstname\": \"Updated\",\n  \"lastname\": \"User\",\n  \"mobile\": \"9876543210\",  // mobile is now a string\n  \"country\": \"Updated Country\",\n  \"MIBPG\": \"654321\",\n  \"businessName\": \"Updated Business\",\n  \"organizationType\": \"Sole Proprietorship\",\n  \"county\": \"Updated County\",\n  \"place\": \"Updated Place\",\n  \"address\": \"456 Updated St\",\n  \"activities\": [\"updatedActivity1\", \"updatedActivity2\"],\n  \"oib\": \"987654321\"\n}'"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST select",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{bearer_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"type\",\n    \"value\": \"value\",\n    \"hrLabel\": \"Naziv\",\n    \"enLabel\": \"Label\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_api_url}}/api/selects",
+							"host": [
+								"{{dev_api_url}}"
+							],
+							"path": [
+								"api",
+								"selects"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:3000/api/users \\\n-H \"Content-Type: application/json\" \\\n-d '{\n    \"email\": \"user@example.com\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"mobile\": 1234567890,\n    \"country\": \"Country Name\",\n    \"MIBPG\": \"MIBPG Value\",\n    \"businessName\": \"Business Name\",\n    \"organizationType\": \"Organization Type\",\n    \"county\": \"County Name\",\n    \"place\": \"Place Name\",\n    \"address\": \"123 Main St\",\n    \"activities\": [\"activity1\", \"activity2\"],\n    \"oib\": \"123456789\"\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "GET selects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dev_api_url}}/api/selects?type=activity",
+							"host": [
+								"{{dev_api_url}}"
+							],
+							"path": [
+								"api",
+								"selects"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "activity"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"variable": [
@@ -150,6 +428,10 @@
 			"key": "dev_api_url",
 			"value": "",
 			"type": "default"
+		},
+		{
+			"key": "bearer_token",
+			"value": ""
 		}
 	]
 }
