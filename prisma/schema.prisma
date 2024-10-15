@@ -10,9 +10,11 @@ generator client {
 model User {
   id               Int      @id @default(autoincrement())
   email            String   @unique
+  password         String
+  role             String?  @default("user")
   firstname        String?
   lastname         String?
-  mobile           Int?
+  mobile           String?
   country          String?
   MIBPG            String?
   businessName     String?
@@ -22,4 +24,5 @@ model User {
   address          String?
   oib              String?
   activities       String[]
+  createdAt        DateTime @default(now())
 }

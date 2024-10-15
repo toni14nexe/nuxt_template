@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "267c6a1a-52d0-4344-82ef-ba6e974a7289",
+		"name": "AgroApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24505256"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "[id]",
+					"item": [
+						{
+							"name": "GET user",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{dev_api_url}}/api/users/1",
+									"host": [
+										"{{dev_api_url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/users/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"4"
+									]
+								},
+								"description": "Generated from cURL: curl -X DELETE http://localhost:3000/api/users/1"
+							},
+							"response": []
+						},
+						{
+							"name": "PUT user",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"updated@example.com\",\n  \"firstname\": \"Updated\",\n  \"lastname\": \"User\",\n  \"mobile\": \"9876543210\",\n  \"country\": \"Updated Country\",\n  \"MIBPG\": \"654321\",\n  \"businessName\": \"Updated Business\",\n  \"organizationType\": \"Sole Proprietorship\",\n  \"county\": \"Updated County\",\n  \"place\": \"Updated Place\",\n  \"address\": \"456 Updated St\",\n  \"activities\": [\"updatedActivity1\", \"updatedActivity2\"],\n  \"oib\": \"987654321\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								},
+								"description": "Generated from cURL: curl -X PUT http://localhost:3000/api/users/1 \\\n-H \"Content-Type: application/json\" \\\n-d '{\n  \"email\": \"updated@example.com\",\n  \"firstname\": \"Updated\",\n  \"lastname\": \"User\",\n  \"mobile\": \"9876543210\",  // mobile is now a string\n  \"country\": \"Updated Country\",\n  \"MIBPG\": \"654321\",\n  \"businessName\": \"Updated Business\",\n  \"organizationType\": \"Sole Proprietorship\",\n  \"county\": \"Updated County\",\n  \"place\": \"Updated Place\",\n  \"address\": \"456 Updated St\",\n  \"activities\": [\"updatedActivity1\", \"updatedActivity2\"],\n  \"oib\": \"987654321\"\n}'"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"mobile\": 1234567890,\n    \"country\": \"Country Name\",\n    \"MIBPG\": \"MIBPG Value\",\n    \"businessName\": \"Business Name\",\n    \"organizationType\": \"Organization Type\",\n    \"county\": \"County Name\",\n    \"place\": \"Place Name\",\n    \"address\": \"123 Main St\",\n    \"activities\": [\"activity1\", \"activity2\"],\n    \"oib\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_api_url}}/api/users",
+							"host": [
+								"{{dev_api_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:3000/api/users \\\n-H \"Content-Type: application/json\" \\\n-d '{\n    \"email\": \"user@example.com\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Doe\",\n    \"mobile\": 1234567890,\n    \"country\": \"Country Name\",\n    \"MIBPG\": \"MIBPG Value\",\n    \"businessName\": \"Business Name\",\n    \"organizationType\": \"Organization Type\",\n    \"county\": \"County Name\",\n    \"place\": \"Place Name\",\n    \"address\": \"123 Main St\",\n    \"activities\": [\"activity1\", \"activity2\"],\n    \"oib\": \"123456789\"\n}'"
+					},
+					"response": []
+				},
+				{
+					"name": "GET users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dev_api_url}}/api/users",
+							"host": [
+								"{{dev_api_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "dev_api_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
